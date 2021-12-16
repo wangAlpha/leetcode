@@ -12,6 +12,14 @@ import requests
 from problem_list import PROBLEM_ID
 
 
+_, algorithm_files, _ = next(os.walk('./algorithms'))
+EXISTED = set()
+for name in algorithm_files:
+    no = name[:4]
+    if no[0].isdigit():
+        EXISTED.add(str(int(no)))
+# visited = set([(name[:4]) for name in algorithm_files])
+# print('visited: {}'.format(visited))
 # ~~~~~~~~~~~~以下是无需修改的参数~~~~~~~~~~~~~~~~·
 # 为了避免弹出一万个warning，which is caused by 非验证的get请求
 requests.packages.urllib3.disable_warnings()
@@ -49,6 +57,7 @@ class LeetCode:
     def __init__(self):
         self.session = requests.session()
         self.session.encoding = "utf-8"
+        self.problem_ids = {}
 
     def login(self, username, password):
         login_data = {'login': username, 'password': password}
@@ -68,16 +77,39 @@ class LeetCode:
         if response.ok:
             result = json.loads(response.text)
         submissions = {}
+        # print(result['stat_status_pairs'][0])
         for record in result['stat_status_pairs']:
-            stat = record['stat']
-            qid = stat['question_id']
-            if qid < 2000:
-                submissions[qid] = stat['question__title_slug'],
-                submissions[str(qid)] = stat['question__title_slug'],
-            else:
-                submissions[qid] = stat['question__title']
-                submissions[str(qid)] = stat['question__title']
+            if record['status']:
+                stat = record['stat']
+                qid = stat['question_id']
+                # if qid < 2000:
+                submissions[qid] = {
+                    'slug': stat['question__title_slug'],
+                    'title': stat['question__title']
+                }
+        # print(submissions)
         return submissions
+
+    def get_question_details(self, question_slug: str) -> dict:
+        body = {"operationName": "submissions",
+                'variables': {
+                    "offset": 0,
+                    "limit": 40,
+                    "questionSlug": question_slug,
+                },
+                "query": "query submissions($offset: Int!, $limit: Int!, $lastKey: String, $questionSlug: String!, $markedOnly: Boolean, $lang: String) {\n  submissionList(offset: $offset, limit: $limit, lastKey: $lastKey, questionSlug: $questionSlug, markedOnly: $markedOnly, lang: $lang) {\n    lastKey\n    hasNext\n    submissions {\n      id\n      statusDisplay\n      lang\n      runtime\n      timestamp\n      url\n      isPending\n      memory\n      submissionComment {\n        comment\n        flagType\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}\n"}
+        return body
+
+    def user_info(self):
+        url = "https://leetcode-cn.com/graphql"
+        submissions = self.crawl_ac_problem()
+        title = list(submissions.values())[100]['slug']
+        print('title: {}'.format(title))
+        body = self.get_question_details(title)
+        print('body :{}'.format(body))
+        # HEADERS['cookie'] = self.session.cookies.add_cookie_header(request)
+        r_json = requests.post(url=url, headers=HEADERS, json=body).json()
+        print('respone: {}'.format(r_json))
 
     def scraping(self,):
         page_num = START_PAGE
@@ -91,6 +123,7 @@ class LeetCode:
 
             html = self.session.get(api, verify=False)
             html = json.loads(html.text)
+            print(html)
             has_next = html.get('has_next', False)
             last_key = html.get('last_key', '')
 
@@ -109,7 +142,10 @@ class LeetCode:
                     print('problem id :{}'.format(pid))
                     if submissions.get(pid, False):
                         title = submissions[pid][0]
-                    visited.add(pid + lang)
+                    if pid in EXISTED:
+                        continue
+
+                    # visited.add(pid + lang)
                     full_path = self.generate_path(pid, title, lang)
                     qid = submission['id']
                     self.download_code(qid, full_path)
@@ -127,12 +163,14 @@ class LeetCode:
             os.system(ins)
             print("~~~~~~~~~~~~~" + ins + " finished! ~~~~~~~~")
 
+    #  def query_by_id(self, title):
+    #      pass
     def download_code(self, qid, full_path):
 
         param = {'operationName': "mySubmissionDetail", "variables": {"id": qid},
                  'query': "query mySubmissionDetail($id: ID\u0021) {  submissionDetail(submissionId: $id) {    id    code    runtime    memory    statusDisplay    timestamp    lang    passedTestCaseCnt    totalTestCaseCnt    sourceUrl    question {      titleSlug      title      translatedTitle      questionId      __typename    }    ... on GeneralSubmissionNode {      outputDetail {        codeOutput        expectedOutput        input        compileError        runtimeError        lastTestcase        __typename      }      __typename    }    __typename  }}"
                  }
-
+        print('qid: {}'.format(qid))
         param_json = json.dumps(param).encode("utf-8")
         response = self.session.post("https://leetcode-cn.com/graphql/",
                                      data=param_json, headers=HEADERS)
@@ -164,7 +202,7 @@ class LeetCode:
 if __name__ == '__main__':
     leetcode = LeetCode()
     leetcode.login(USERNAME, PASSWORD)
-
+    # leetcode.user_info()
     print('Start scrapping')
     leetcode.scraping()
     print('End scrapping')

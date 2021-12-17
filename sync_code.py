@@ -8,18 +8,12 @@ import time
 
 import requests
 
-# from ProblemList import GetProblemId
-from problem_list import PROBLEM_ID
-
-
 _, algorithm_files, _ = next(os.walk('./algorithms'))
 EXISTED = set()
 for name in algorithm_files:
-    no = name[:4]
-    if no[0].isdigit():
-        EXISTED.add(str(int(no)))
-# visited = set([(name[:4]) for name in algorithm_files])
-# print('visited: {}'.format(visited))
+    title = name.split('.')[-1]
+    EXISTED.add(title)
+
 # ~~~~~~~~~~~~以下是无需修改的参数~~~~~~~~~~~~~~~~·
 # 为了避免弹出一万个warning，which is caused by 非验证的get请求
 requests.packages.urllib3.disable_warnings()
@@ -146,7 +140,7 @@ class LeetCode:
         has_next = True
         last_key = ''
 
-        while has_next and page_num < 2000:
+        while has_next and page_num < 3000:
             api = SUMBISSION_API.format(page_num, last_key)
 
             html = self.session.get(api, verify=False)
@@ -157,8 +151,14 @@ class LeetCode:
 
             for submission in html.get("submissions_dump", []):
                 submission_status = submission['status_display']
+                def time_delta(t): return int(time.time() - t)/(3600 * 24)
+                cur_time = submission['timestamp']
+                if time_delta(cur_time) > TIME_CONTROL:
+                    return
+                # day = time_delta(cur_time)
                 if submission_status == "Accepted":
                     title = submission['title'].replace(" ", "")
+                    # print("title: {} {}".format(title, day))
                     memory = submission['memory']
                     if memory and len(memory) > 0 and memory[0].isdigit():
                         memory = submission['memory'][:-3]
@@ -178,7 +178,7 @@ class LeetCode:
 
     def filter_question(self):
         # 保障每道题只记录每种语言最优的AC解
-        def time_delta(t): return int(time.time() - t)/3600
+        def time_delta(t): return int(time.time() - t)/(3600 * 24)
         for title_lang, items in self.submission.items():
             items = list(filter(lambda x: time_delta(x['time']) < TIME_CONTROL,
                                 items))
@@ -195,21 +195,10 @@ class LeetCode:
             try:
                 sid = item['sid']
                 self.download_code(sid)
+                time.sleep(0.3)
             except Exception as e:
                 print('Download execption: {}'.format(e))
 
-    def push_to_github():
-        today = time.strftime('%Y-%m-%d', time.localtime(time.time()))
-        os.chdir(OUTPUT_DIR)
-        instructions = ["git add .", "git status",
-                        "git commit -m \"{}\"".format(today),
-                        "git push -u origin master"]
-        for ins in instructions:
-            os.system(ins)
-            print("~~~~~~~~~~~~~" + ins + " finished! ~~~~~~~~")
-
-    #  def query_by_id(self, title):
-    #      pass
     def download_code(self, qid):
         param = {'operationName': "mySubmissionDetail", "variables": {"id": qid},
                  'query': "query mySubmissionDetail($id: ID\u0021) {  submissionDetail(submissionId: $id) {    id    code    runtime    memory    statusDisplay    timestamp    lang    passedTestCaseCnt    totalTestCaseCnt    sourceUrl    question {      titleSlug      title      translatedTitle      questionId      __typename    }    ... on GeneralSubmissionNode {      outputDetail {        codeOutput        expectedOutput        input        compileError        runtimeError        lastTestcase        __typename      }      __typename    }    __typename  }}"
@@ -217,18 +206,21 @@ class LeetCode:
         param_json = json.dumps(param).encode("utf-8")
         response = self.session.post("https://leetcode-cn.com/graphql/",
                                      data=param_json, headers=HEADERS)
-        if not response.ok:
-            return
-        if not response.json()['data'] and not response.json()['data']['submissionDetail']:
+        if not response.ok \
+                and not response.json()['data'] \
+                and not response.json()['data']['submissionDetail']:
             print('response: {}'.format(response))
             return
         data = response.json()['data']["submissionDetail"]
         lang = data['lang']
         title_slug = data['question']['titleSlug'].replace('-', '_')
         question_id = data['question']['questionId']
-        print('qid: {} {} {} {}'.format(qid, question_id, title_slug, lang))
-        if data:
-            full_path = self.generate_path(question_id, title_slug, lang)
+        full_path = self.generate_path(question_id, title_slug, lang)
+        # if title_slug in EXISTED:
+        #     print('title already exists:{}'.format(title_slug))
+        if data and not os.path.exists(full_path):
+            print('title {} {} {} {}'
+                  .format(qid, question_id, title_slug, lang))
             code = data.get('code', '')
             with open(full_path, "w") as f:
                 f.write(code)
@@ -253,6 +245,16 @@ class LeetCode:
             os.mkdir(newpath)
 
         return os.path.join(newpath, filename)
+
+    def push_to_github():
+        today = time.strftime('%Y-%m-%d', time.localtime(time.time()))
+        os.chdir(OUTPUT_DIR)
+        instructions = ["git add .", "git status",
+                        "git commit -m \"{}\"".format(today),
+                        "git push -u origin master"]
+        for ins in instructions:
+            os.system(ins)
+            print("~~~~~~~~~~~~~" + ins + " finished! ~~~~~~~~")
 
 
 if __name__ == '__main__':

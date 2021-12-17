@@ -1,18 +1,22 @@
 impl Solution {
     pub fn find_content_children(children: Vec<i32>, cookie: Vec<i32>) -> i32 {
         let mut children = children;
-        let mut cookies = cookie;
-        // let mut count = 0;
+        let mut cookie = cookie;
+        let mut count = 0;
         children.sort();
-        cookies.sort();
+        cookie.sort();
 
-        let (mut child, mut cookie) = (0usize, 0usize);
-        while child < children.len() && cookie < cookies.len() {
-            if children[child] <= cookies[cookie] {
-                child += 1;
+        let (mut i, mut j) = (0usize, 0usize);
+        while i < children.len() && j < cookie.len() {
+            while j < cookie.len() && children[i] > cookie[j] {
+                j += 1;
             }
-            cookie += 1
+            if j < cookie.len() {
+                i += 1;
+                j += 1;
+                count += 1;
+            }
         }
-        child as i32
+        count
     }
 }

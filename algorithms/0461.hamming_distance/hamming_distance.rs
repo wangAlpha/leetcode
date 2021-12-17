@@ -1,11 +1,15 @@
 impl Solution {
     pub fn hamming_distance(x: i32, y: i32) -> i32 {
-        let mut number = x ^ y;
-        let mut distance = 0;
-        while number > 0 {
-            number = number & (number - 1);
-            distance += 1;
+        let mut bits = x ^ y;
+        let mut count = 0;
+
+        while bits > 0 {
+            let result = bits & 0x01;
+            bits >>= 1;
+            if result != 0 {
+                count += 1;
+            }
         }
-        distance
+        count
     }
 }

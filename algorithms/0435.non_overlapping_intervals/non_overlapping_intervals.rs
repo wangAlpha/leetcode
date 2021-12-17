@@ -6,7 +6,7 @@ impl Solution {
         let mut counter = 0;
         let mut intervals = intervals;
         intervals.sort_by(|a, b| a[1].cmp(&b[1]));
-        // println!("{:?}", intervals);
+        println!("{:?}", intervals);
         let mut prev = intervals[0][1];
         for i in 1..intervals.len() {
             if prev > intervals[i][0] {

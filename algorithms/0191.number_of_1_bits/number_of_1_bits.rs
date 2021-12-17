@@ -4,8 +4,10 @@ impl Solution {
         let mut count = 0;
         
         while bits > 0 {
-            count += 1;
-            bits &= (bits - 1);
+            if bits & 0x01 == 1 {
+                count += 1;
+            }
+            bits >>= 1;
         }
         count
     }

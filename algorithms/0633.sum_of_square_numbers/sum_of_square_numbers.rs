@@ -1,17 +1,17 @@
 impl Solution {
     pub fn judge_square_sum(c: i32) -> bool {
-        let mut c = c as i64;
-        let (mut lo, mut hi) = (0i64, (c as f32).sqrt() as i64 + 1);
+        let (mut lo, mut hi) = (0, (c as f32).sqrt() as i32 + 1);
+        
         while lo < hi {
-            let r = lo * lo + hi * hi;
-            if r < c {
-                lo += 1;
-            } else if r > c {
-                hi -= 1;
-            } else {
+            let sum = lo * lo + hi * hi;
+            if sum == c {
                 return true;
+            } else if sum < c {
+                lo += 1;
+            } else {
+                hi -= 1;
             }
         }
-        lo * lo + hi * hi == c
+        c == lo * lo + hi * hi
     }
 }

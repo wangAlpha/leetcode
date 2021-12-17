@@ -11,8 +11,8 @@ impl MinStack {
     /** initialize your data structure here. */
     fn new() -> Self {
         MinStack {
-            stack: Vec::with_capacity(2048),
-            min_list: Vec::with_capacity(2048),
+            stack: vec![],
+            min_list: vec![],
         }
     }
 

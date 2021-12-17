@@ -10,17 +10,15 @@ impl Solution {
             }
             a[0].cmp(&b[0])
         });
+        // println!("people = {:?}", people);
         for index in 1..people.len() {
             let cur_person = &people[index];
             let mut count = 0;
             for (i, person) in people.iter().enumerate() {
-                if i == index {
-                    break;
-                }
                 if person[0] >= cur_person[0] {
                     count += 1;
                 }
-                if count > cur_person[1] {
+                if count > cur_person[1] && i < index {
                     let e = people.remove(index);
                     people.insert(i, e);
                     break;

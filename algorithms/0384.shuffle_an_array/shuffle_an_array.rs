@@ -26,7 +26,7 @@ impl Solution {
 
     /** Returns a random shuffling of the array. */
     fn shuffle(&mut self) -> Vec<i32> {
-        for i in 0..self.data.len()/2 {
+        for (i, _) in self.data.iter().enumerate() {
             let j: usize = rand::thread_rng().gen_range(0, self.data.len());
             self.shuffle.swap(i as usize, j);
         }

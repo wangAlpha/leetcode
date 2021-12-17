@@ -8,6 +8,15 @@ impl Solution {
                 flowerbed[i] = -1;
             }
         }
+        // println!("flowerbed = {:?}", flowerbed);
         flowerbed.iter().filter(|&&x| x == -1).count() >= n as usize
+        // let mut count = 0;
+        // for &n in flowerbed.iter() {
+        //     if n == -1 {
+        //         count += 1;
+        //     }
+        // }
+        // count >= n
     }
+
 }

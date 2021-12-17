@@ -43,11 +43,12 @@ with open(CONFIG_PATH, "r") as f:  # 读取用户名，密码，本地存储目�
     USERNAME = config['username']
     PASSWORD = config['password']
     OUTPUT_DIR = config['outputDir']
-    TIME_CONTROL = 3600 * 24 * config['time']
+    TIME_CONTROL = config['time']
 
 FILE_FORMAT = {"C++": ".cpp", "Python3": ".py", "Python": ".py", "MySQL": ".sql", "Go": ".go", "Java": ".java",
-               "C": ".c", "JavaScript": ".js", "PHP": ".php", "C#": ".cs", "Ruby": ".rb", "Swift": ".swift",
+               "C": ".c", "Cpp": ".cpp", "JavaScript": ".js", "PHP": ".php", "C#": ".cs", "Ruby": ".rb", "Swift": ".swift",
                "Scala": ".scl", "Kotlin": ".kt", "Rust": ".rs", 'MS SQL Server': '.sql'}
+[FILE_FORMAT.update({t.lower(): s}) for t, s in list(FILE_FORMAT.items())]
 
 START_PAGE = 0  # 从哪一页submission开始爬起，0是最新的一页
 SLEEP_TIME = 5  # in second，登录失败时的休眠时间
@@ -58,6 +59,7 @@ class LeetCode:
         self.session = requests.session()
         self.session.encoding = "utf-8"
         self.problem_ids = {}
+        self.submission = {}
 
     def login(self, username, password):
         login_data = {'login': username, 'password': password}
@@ -90,15 +92,40 @@ class LeetCode:
         # print(submissions)
         return submissions
 
-    def get_question_details(self, question_slug: str) -> dict:
-        body = {"operationName": "submissions",
-                'variables': {
-                    "offset": 0,
-                    "limit": 40,
-                    "questionSlug": question_slug,
-                },
-                "query": "query submissions($offset: Int!, $limit: Int!, $lastKey: String, $questionSlug: String!, $markedOnly: Boolean, $lang: String) {\n  submissionList(offset: $offset, limit: $limit, lastKey: $lastKey, questionSlug: $questionSlug, markedOnly: $markedOnly, lang: $lang) {\n    lastKey\n    hasNext\n    submissions {\n      id\n      statusDisplay\n      lang\n      runtime\n      timestamp\n      url\n      isPending\n      memory\n      submissionComment {\n        comment\n        flagType\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}\n"}
-        return body
+    def get_problem_by_slug(self, slug):
+        url = "https://leetcode.com/graphql"
+        params = {'operationName': "getQuestionDetail",
+                  'variables': {'titleSlug': slug},
+                  'query': '''query getQuestionDetail($titleSlug: String!) {
+                question(titleSlug: $titleSlug) {
+                    questionId
+                    questionFrontendId
+                    questionTitle
+                    questionTitleSlug
+                    questionTitleCN
+                    difficulty
+                    stats
+                    similarQuestions
+                    categoryTitle
+                    topicTags {
+                            name
+                            slug
+                    }
+                }
+            }'''
+                  }
+
+        json_data = json.dumps(params).encode('utf8')
+
+        resp = self.session.post(
+            url, data=json_data, headers=HEADERS, timeout=10)
+        content = resp.json()
+
+        # 题目详细信息
+        print(content)
+        question = content['data']['question']
+        # print(question)
+        return question
 
     def user_info(self):
         url = "https://leetcode-cn.com/graphql"
@@ -113,45 +140,61 @@ class LeetCode:
 
     def scraping(self,):
         page_num = START_PAGE
-        visited = set()
-        submissions = self.crawl_ac_problem()
+        # visited = set(
         has_next = True
         last_key = ''
-        while has_next:
-            print("Now for page:", str(page_num))
+
+        while has_next and page_num < 2000:
             api = SUMBISSION_API.format(page_num, last_key)
 
             html = self.session.get(api, verify=False)
             html = json.loads(html.text)
-            print(html)
-            has_next = html.get('has_next', False)
+            has_next = html.get('has_next', True)
             last_key = html.get('last_key', '')
+            print("Now for page: {} hasNext: {},".format(page_num, has_next))
 
             for submission in html.get("submissions_dump", []):
                 submission_status = submission['status_display']
-                title = submission['title'].replace(" ", "")
-                lang = submission['lang']
-
-                if submission_status != "Accepted":
-                    continue
-
-                # pid = GetProblemId(title)
-                pid = PROBLEM_ID.get(title, False)
-                if pid and pid + lang not in visited:
-                    # 保障每道题只记录每种语言最新的AC解
-                    print('problem id :{}'.format(pid))
-                    if submissions.get(pid, False):
-                        title = submissions[pid][0]
-                    if pid in EXISTED:
-                        continue
-
-                    # visited.add(pid + lang)
-                    full_path = self.generate_path(pid, title, lang)
-                    qid = submission['id']
-                    self.download_code(qid, full_path)
-
-            time.sleep(0.2)
+                if submission_status == "Accepted":
+                    title = submission['title'].replace(" ", "")
+                    memory = submission['memory']
+                    if memory and len(memory) > 0 and memory[0].isdigit():
+                        memory = submission['memory'][:-3]
+                    else:
+                        memory = 0xffff
+                    item = {
+                        'sid': submission['id'],
+                        'runtime': float(submission['runtime'][:-3]),
+                        'lang': submission['lang'],
+                        'time': submission['timestamp'],
+                        'memory': memory,
+                    }
+                    self.submission\
+                        .setdefault(title + '_' + submission['lang'], []).append(item)
+            time.sleep(0.3)
             page_num += 20
+
+    def filter_question(self):
+        # 保障每道题只记录每种语言最优的AC解
+        def time_delta(t): return int(time.time() - t)/3600
+        for title_lang, items in self.submission.items():
+            items = list(filter(lambda x: time_delta(x['time']) < TIME_CONTROL,
+                                items))
+        submission = {}
+        for title_lang, items in self.submission.items():
+            items.sort(key=lambda x: (x['time'], x['memory']))
+            if len(items) >= 1:
+                submission[title_lang] = items[0]
+        self.submission = submission
+
+    def download(self):
+        self.filter_question()
+        for title, item in self.submission.items():
+            try:
+                sid = item['sid']
+                self.download_code(sid)
+            except Exception as e:
+                print('Download execption: {}'.format(e))
 
     def push_to_github():
         today = time.strftime('%Y-%m-%d', time.localtime(time.time()))
@@ -165,19 +208,27 @@ class LeetCode:
 
     #  def query_by_id(self, title):
     #      pass
-    def download_code(self, qid, full_path):
-
+    def download_code(self, qid):
         param = {'operationName': "mySubmissionDetail", "variables": {"id": qid},
                  'query': "query mySubmissionDetail($id: ID\u0021) {  submissionDetail(submissionId: $id) {    id    code    runtime    memory    statusDisplay    timestamp    lang    passedTestCaseCnt    totalTestCaseCnt    sourceUrl    question {      titleSlug      title      translatedTitle      questionId      __typename    }    ... on GeneralSubmissionNode {      outputDetail {        codeOutput        expectedOutput        input        compileError        runtimeError        lastTestcase        __typename      }      __typename    }    __typename  }}"
                  }
-        print('qid: {}'.format(qid))
         param_json = json.dumps(param).encode("utf-8")
         response = self.session.post("https://leetcode-cn.com/graphql/",
                                      data=param_json, headers=HEADERS)
+        if not response.ok:
+            return
+        if not response.json()['data'] and not response.json()['data']['submissionDetail']:
+            print('response: {}'.format(response))
+            return
         data = response.json()['data']["submissionDetail"]
+        lang = data['lang']
+        title_slug = data['question']['titleSlug'].replace('-', '_')
+        question_id = data['question']['questionId']
+        print('qid: {} {} {} {}'.format(qid, question_id, title_slug, lang))
         if data:
+            full_path = self.generate_path(question_id, title_slug, lang)
             code = data.get('code', '')
-            with open(full_path, "w") as f:  # 开始写到本地
+            with open(full_path, "w") as f:
                 f.write(code)
 
     def generate_path(self, pid, title, lang):
@@ -204,5 +255,8 @@ if __name__ == '__main__':
     leetcode.login(USERNAME, PASSWORD)
     # leetcode.user_info()
     print('Start scrapping')
+    # leetcode.get_problem_by_slug('')
     leetcode.scraping()
+    leetcode.download()
+    # leetcode.get_problem_by_slug('pairs-with-sum-lcci')
     print('End scrapping')

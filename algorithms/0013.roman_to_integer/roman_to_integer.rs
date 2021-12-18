@@ -13,19 +13,15 @@ impl Solution {
         .iter()
         .cloned()
         .collect();
-        let mut numbers: Vec<i32> = s
-            .as_bytes()
-            .iter()
-            .map(|&x| roman_dict[&(x as char)])
-            .collect();
-        let mut max = 0;
         let mut sum = 0;
-        for &x in numbers.iter().rev() {
-            if x < max {
-                sum += -x;
+        let mut max = 0;
+        for &c in s.as_bytes().iter().rev() {
+           let n = roman_dict[&(c as char)];
+            if n < max {
+                sum += -n;
             } else {
-                sum += x;
-                max = x;
+                sum += n;
+                max = n;
             }
         }
         sum

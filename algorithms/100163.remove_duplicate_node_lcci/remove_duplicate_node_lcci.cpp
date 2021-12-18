@@ -18,11 +18,17 @@ public:
             auto cur = pre->next;
             const int val = cur->val;
             if (numbers.find(cur->val) != numbers.end()) {
+                auto p = cur;
                 pre->next = cur->next;
+                delete p;
             } else {
                 pre = pre->next;
             }
             numbers.insert(val);
+        }
+        if (pre->next != nullptr) {
+            auto p = pre->next;
+            delete p;
         }
         pre->next = nullptr;
         return head;

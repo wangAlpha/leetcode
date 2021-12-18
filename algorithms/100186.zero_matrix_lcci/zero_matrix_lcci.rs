@@ -1,22 +1,25 @@
 use std::collections::HashSet;
 
 impl Solution {
-    fn set_zeroes(matrix: &mut Vec<Vec<i32>>) {
+    pub fn set_zeroes(matrix: &mut Vec<Vec<i32>>) {
         let mut lines = HashSet::new();
         let mut rows = HashSet::new();
-        for i in 0..matrix.len() {
-            for j in 0..matrix[0].len() {
+        for (i, line) in matrix.iter().enumerate() {
+            for (j, &x) in line.iter().enumerate() {
                 if matrix[i][j] == 0 {
                     lines.insert(i);
                     rows.insert(j);
                 }
             }
         }
-        for i in 0..matrix.len() {
+        for &i in lines.iter() {
             for j in 0..matrix[0].len() {
-                if lines.contains(&i) || rows.contains(&j) {
-                    matrix[i][j] = 0;
-                }
+                matrix[i][j] = 0;
+            }
+        }
+        for &j in rows.iter() {
+            for i in 0..matrix.len() {
+                matrix[i][j] = 0;
             }
         }
     }

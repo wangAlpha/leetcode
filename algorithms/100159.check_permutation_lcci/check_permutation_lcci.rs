@@ -1,11 +1,12 @@
 impl Solution {
     pub fn check_permutation(s1: String, s2: String) -> bool {
-        let mut chars = [0; 26];
-        for &c in s1.as_bytes().iter() {
-            chars[c as usize - 97] += 1;
+        if s1.len() != s2.len() {
+            return false;
         }
-        for &c in s2.as_bytes().iter() {
-            chars[c as usize - 97] -= 1;
+        let mut chars = [0i8; 26];
+        for (&c1, &c2) in s1.as_bytes().iter().zip(s2.as_bytes()) {
+            chars[c1 as usize - 97] += 1;
+            chars[c2 as usize - 97] -= 1;
         }
         for &c in chars.iter() {
             if c != 0 {

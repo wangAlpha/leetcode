@@ -11,12 +11,6 @@ impl Solution {
                 break;
             }
         }
-        // println!("nums = {:?}", nums);
-        for i in 0..nums.len() - 1 {
-            if nums[i] > nums[i + 1] {
-                return false;
-            }
-        }
-        true
+        (0..nums.len() - 1).all(|i| nums[i] <= nums[i + 1])
     }
 }

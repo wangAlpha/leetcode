@@ -155,7 +155,6 @@ class LeetCode:
                 cur_time = submission['timestamp']
                 if time_delta(cur_time) > TIME_CONTROL:
                     return
-                # day = time_delta(cur_time)
                 if submission_status == "Accepted":
                     title = submission['title'].replace(" ", "")
                     # print("title: {} {}".format(title, day))
@@ -185,8 +184,15 @@ class LeetCode:
         submission = {}
         for title_lang, items in self.submission.items():
             items.sort(key=lambda x: (x['time'], x['memory']))
+            items.reverse()
             if len(items) >= 1:
+                print(items)
                 submission[title_lang] = items[0]
+                # item = items[0]
+                # print('best result {} {} {} {}'.format(title_lang,
+                #                                        item['lang'], item['time'], item['memory']))
+                # exit(-1)
+        # exit(-1)
         self.submission = submission
 
     def download(self):
@@ -206,8 +212,8 @@ class LeetCode:
         param_json = json.dumps(param).encode("utf-8")
         response = self.session.post("https://leetcode-cn.com/graphql/",
                                      data=param_json, headers=HEADERS)
-        if not response.ok \
-                and not response.json()['data'] \
+        if not response.ok\
+                and not response.json()['data']\
                 and not response.json()['data']['submissionDetail']:
             print('response: {}'.format(response))
             return
@@ -219,8 +225,7 @@ class LeetCode:
         # if title_slug in EXISTED:
         #     print('title already exists:{}'.format(title_slug))
         if data and not os.path.exists(full_path):
-            print('title {} {} {} {}'
-                  .format(qid, question_id, title_slug, lang))
+            print('download {} {} {}'.format(question_id, title_slug, lang))
             code = data.get('code', '')
             with open(full_path, "w") as f:
                 f.write(code)

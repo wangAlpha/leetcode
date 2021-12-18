@@ -1,15 +1,18 @@
 impl Solution {
     pub fn daily_temperatures(temperatures: Vec<i32>) -> Vec<i32> {
-        let mut days = vec![0; temperatures.len()];
-        
+        let mut ans = vec![0; temperatures.len()];
+        let mut indices = Vec::new();
         for i in 0..temperatures.len() {
-            for j in i..temperatures.len() {
-                if temperatures[j] > temperatures[i] {
-                    days[i] = (j - i) as i32;
+            while !indices.is_empty() {
+                let pre_index = *indices.last().unwrap();
+                if temperatures[i] <= temperatures[pre_index] {
                     break;
                 }
+                ans[pre_index] = (i - pre_index) as i32;
+                indices.pop();
             }
+            indices.push(i);
         }
-        days
+        ans
     }
 }

@@ -1,16 +1,3 @@
-# LeetCode
-一句话简介：本项目是个人Leetcode的刷题记录，其中`python`脚本是同步**个人提交**的代码的爬虫。
-
-
-# 使用方法
-1. `clone`或者`download`到本地
-2. 安装依赖库 `pip install -r requirements.txt`
-3. 配置`config.json`文件，用户名，密码，本地存储地址，时间控制（天）
-4. 在命令行下运行`python3 main.py`或者使用IDE编译运行
-
-
-# 刷题进度
-
 
 # 哈希表
  - [x]  1\. Two Sum (Easy)
@@ -36,46 +23,47 @@
  - [x]  19\. Remove Nth Node From End of List (Medium)
  - [x]  24\. Swap Nodes in Pairs (Medium)
  - [x]  445\. Add Two Numbers II (Medium)
- - [x]  234\. **Palindrome Linked List (Easy)**
+ - [x]  234**\. Palindrome Linked List (Easy)**
  - [x]  725\. Split Linked List in Parts(Medium)
  - [x]  328\. Odd Even Linked List (Medium)
- - [x]  215\. **Kth Largest Element in an Array (Medium)**
+ - [x]  **215\. Kth Largest Element in an Array (Medium)**
  - [x]  148\. **Sort List (Medium) 利用快慢指针找到链表中点后，可以对链表进行归并排序。**
 
 
 # 栈和队列
  - [x]  232\. Implement Queue using Stacks (Easy)
- - [x]  225\. **Implement Stack using Queues (Easy)**
+ - [x]  **225\. Implement Stack using Queues (Easy)**
  - [x]  155\. Min Stack (Easy)
  - [x]  20\. Valid Parentheses (Easy)
  - [x]  739**\. Daily Temperatures (Medium)**
  - [x]  23\. Merge k Sorted Lists (Hard)
  - [ ]  218\. The Skyline Problem (Hard)
- - [x]  239\. **Sliding Window Maximum (Hard)**
+ - [x]  **239**\. Sliding Window Maximum (Hard)
 # 树
 ## 递归
  - [x]  104\. Maximum Depth of Binary Tree (Easy)
- - [x]  110\. **Balanced Binary Tree (Easy)**
- - [ ]  543\. Diameter of Binary Tree (Easy)
+ - [x]  **110\. Balanced Binary Tree (Easy)**
+ - [x]  543\. **Diameter of Binary Tree (Easy)**
  - [x]  226\. Invert Binary Tree (Easy)  巧用递归，你可以在五行内完成这道题。
  - [x]  617\. Merge Two Binary Trees (Easy)
- - [ ]  437\. Path Sum III (Easy)
- - [ ]  572\. Subtree of Another Tree (Easy)
- - [ ]  101\. Symmetric Tree (Easy)
- - [ ]  111\. Minimum Depth of Binary Tree (Easy)
+ - [x]  560\. **Subarray Sum Equals K **前缀法
+ - [x]  437\. **Path Sum III (Easy)** 
+ - [x]  572\. **Subtree of Another Tree (Easy)**
+ - [x]  101\. **Symmetric Tree (Easy)**
+ - [x]  111\. **Minimum Depth of Binary Tree (Easy)**
  - [ ]  687\. Longest Univalue Path (Easy)
  - [ ]  337\. House Robber III (Medium)
- - [ ]  671\. Second Minimum Node In a Binary Tree (Easy)
+ - [x]  671\. **Second Minimum Node In a Binary Tree (Easy)**
  - [ ]  1110\. Delete Nodes And Return Forest (Medium)
 ## 层次遍历
- - [ ]  637\. Average of Levels in Binary Tree (Easy)
- - [ ]  513\. Find Bottom Left Tree Value (Easy)
+ - [x]  637\. Average of Levels in Binary Tree (Easy)
+ - [x]  513\. Find Bottom Left Tree Value (Easy)
 ## 前中后序遍历
- - [ ]  144\. Binary Tree Preorder Traversal (Medium)
- - [ ]  145\. Binary Tree Postorder Traversal (Medium)
- - [ ]  94\. Binary Tree Inorder Traversal (Medium)
+ - [x]  144\. Binary Tree Preorder Traversal (Medium)
+ - [x]  145\. Binary Tree Postorder Traversal (Medium)
+ - [x]  94\. Binary Tree Inorder Traversal (Medium)
  - [ ]  105\. Construct Binary Tree from Preorder and Inorder Traversal (Medium)
- - [ ]  99\. Recover Binary Search Tree (Hard)
+ - [x]  99\. **Recover Binary Search Tree (Hard)**
 ## BST
  - [ ]  669\. Trim a Binary Search Tree (Easy)
  - [ ]  230\. Kth Smallest Element in a BST (Medium)
@@ -300,3 +288,4 @@
  - [ ]  72\. Edit Distance (Hard)
  - [ ]  650\. 2 Keys Keyboard (Medium)
  - [ ]  10\. Regular Expression Matching (Hard)
+

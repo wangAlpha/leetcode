@@ -27,7 +27,7 @@
  - [x]  725\. Split Linked List in Parts(Medium)
  - [x]  328\. Odd Even Linked List (Medium)
  - [x]  **215\. Kth Largest Element in an Array (Medium)**
- - [x]  148\. **Sort List (Medium) 利用快慢指针找到链表中点后，可以对链表进行归并排序。**
+ - [x]  148\. **Sort List (Medium) 利用快慢指针找到链表中点后，可以对链表进行归并排序**
 
 
 # 栈和队列
@@ -65,8 +65,8 @@
  - [ ]  105\. Construct Binary Tree from Preorder and Inorder Traversal (Medium)
  - [x]  99\. **Recover Binary Search Tree (Hard)**
 ## BST
- - [ ]  669\. Trim a Binary Search Tree (Easy)
- - [ ]  230\. Kth Smallest Element in a BST (Medium)
+ - [x]  669\. **Trim a Binary Search Tree (Easy)** 搜索树的定义
+ - [x]  230\. **Kth Smallest Element in a BST (Medium)** 迭代遍历
  - [ ]  235\. Lowest Common Ancestor of a Binary Search Tree (Easy)
  - [ ]  236\. Lowest Common Ancestor of a Binary Tree (Medium)
  - [ ]  108\. Convert Sorted Array to Binary Search Tree (Easy)
@@ -78,26 +78,26 @@
  - [ ]  208\. Implement Trie (Prefix Tree) (Medium)
  - [ ]  677\. Map Sum Pairs (Medium)
 ## STL
- - [ ]  146\. LRU Cache (Medium)
- - [ ]  404\. Sum of Left Leaves (Easy) 怎么判断一个节点是不是左节点呢？一种可行的方法是，在辅函数里多传一个参数，表示当前节点是不是父节点的左节点。
- - [ ]  538\. Convert BST to Greater Tree (Easy) 尝试利用某种遍历方式来解决此题，每个节点只需遍历一次。
+ - [x]  146\. LRU Cache (Medium)
+ - [x]  404\. Sum of Left Leaves (Easy) 怎么判断一个节点是不是左节点呢？一种可行的方法是，在辅函数里多传一个参数，表示当前节点是不是父节点的左节点。
+ - [x]  538\. Convert BST to Greater Tree (Easy) 尝试利用某种遍历方式来解决此题，每个节点只需遍历一次。
  - [ ]  889\. Construct Binary Tree from Preorder and Postorder Traversal (Medium) 给定任意两种遍历结果，我们都可以重建树的结构。
  - [ ]  106\. Construct Binary Tree from Inorder and Postorder Traversal (Medium) 给定任意两种遍历结果，我们都可以重建树的结构。
- - [ ]  897\. Increasing Order Search Tree (Easy) 把 BST 压成一个链表，务必考虑清楚指针操作的顺序，否则可能会出现环路。
+ - [x]  **897\. Increasing Order Search Tree (Easy) 把 BST 压成一个链表，务必考虑清楚指针操作的顺序，否则可能会出现环路。**
  - [ ]  450\. Delete Node in a BST (Medium) 当寻找到待删节点时，你可以分情况考虑——当前节点是叶节点、只有一个子节点和有两个子节点。建议同时回收内存。
  - [ ]  380\. Insert Delete GetRandom O(1) (Medium) 设计一个插入、删除和随机取值均为 O(1) 时间复杂度的数据结构。
  - [ ]  432\. All O‘one Data Structure (Hard) 设计一个 increaseKey，decreaseKey，getMaxKey，getMinKey 均为 O(1) 时间复杂度的数据结构。
  - [ ]  716\. Max Stack (Easy)
 # 双指针
- - [ ]  167\. Two Sum II - Input array is sorted (Easy)
- - [ ]  633\. Sum of Square Numbers (Easy)
- - [ ]  345\. Reverse Vowels of a String (Easy)
- - [ ]  680\. Valid Palindrome II (Easy)
- - [ ]  141\. Linked List Cycle (Easy)
- - [ ]  524\. Longest Word in Dictionary through Deleting (Medium) 归并两个有序数组的变形题。
- - [ ]  88\. Merge Sorted Array (Easy)
- - [ ]  142\. Linked List Cycle II (Medium)
- - [ ]  76\. Minimum Window Substring (Hard)
+ - [x]  167\. Two Sum II - Input array is sorted (Easy)
+ - [x]  633\. **Sum of Square Numbers (Easy)**
+ - [x]  345\. Reverse Vowels of a String (Easy)
+ - [x]  680\. Valid Palindrome II (Easy)
+ - [x]  141\. Linked List Cycle (Easy)
+ - [x]  524\. **Longest Word in Dictionary through Deleting (Medium) 归并两个有序数组的变形题** （双指针）
+ - [x]  88\. Merge Sorted Array (Easy)
+ - [x]  142\. **Linked List Cycle II (Medium)** 算术题
+ - [ ]  76\. **Minimum Window Substring (Hard)**
  - [ ]  4\.   Longest Substring with At Most K Distinct Characters (Hard) 需要利用其它数据结构方便统计当前的字符状态。
 # 搜索
 ## BFS
@@ -135,13 +135,13 @@
  - [ ]  6\.   Minimum Height Trees (Medium)如何将这道题转为搜索类型题？是使用深度优先还是广度优先呢？
 
 # 贪心思想
- - [ ]  455\. Assign Cookies (Easy) (Google)
- - [ ]  435\. Non-overlapping Intervals (Medium) (Google)
- - [ ]  452\. Minimum Number of Arrows to Burst Balloons (Medium)
- - [ ]  406\. Queue Reconstruction by Height(Medium)
- - [ ]  121\. Best Time to Buy and Sell Stock (Easy)
- - [ ]  122\. Best Time to Buy and Sell Stock II (Easy)
- - [ ]  392\. Is Subsequence (Medium)
+ - [x]  455\. Assign Cookies (Easy) (Google)
+ - [x]  435\. Non-overlapping Intervals (Medium) (Google)
+ - [x]  452\. Minimum Number of Arrows to Burst Balloons (Medium)
+ - [x]  406\. **Queue Reconstruction by Height(Medium)**
+ - [x]  121\. **Best Time to Buy and Sell Stock (Easy)** 历史最低点
+ - [x]  122\. **Best Time to Buy and Sell Stock II (Easy)**
+ - [x]  392\. Is Subsequence (Medium)
  - [ ]  665\. Non-decreasing Array (Easy)
  - [ ]  53\. Maximum Subarray (Easy)
  - [ ]  135\. Candy (Hard)

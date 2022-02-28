@@ -1,4 +1,5 @@
-use std::{ascii::AsciiExt, collections::HashMap, hash::Hash, iter::FromIterator};
+use core::num;
+use std::{collections::HashMap, fmt::Binary, hash::Hash};
 fn main() {}
 type Table<T> = Vec<Vec<T>>;
 
@@ -59,36 +60,99 @@ pub fn daily_temperatures(temperatures: Vec<i32>) -> Vec<i32> {
     ans
 }
 
+pub fn find_shortest_sub_array(nums: Vec<i32>) -> i32 {
+    let mut nums_degree = HashMap::new();
+    for &n in nums.iter() {
+        let count = nums_degree.entry(n).or_insert(0);
+        *count += 1;
+    }
 
+    let degree = *nums_degree.values().max().unwrap();
+    let mut degree_pos: HashMap<i32, Vec<usize>> = HashMap::new();
+    for i in 0..nums.len() {
+        let n = nums[i];
+        if nums_degree.contains_key(&n) && nums_degree[&n] == degree {
+            let indexs = degree_pos.entry(n).or_insert(vec![]);
+            indexs.push(i);
+        }
+    }
+    degree_pos
+        .values()
+        .map(|v| v.last().unwrap() - v[0])
+        .min()
+        .unwrap() as i32
+        + 1
+}
+
+use std::collections::VecDeque;
+use std::collections::LinkedList;
+pub fn max_sliding_window(nums: Vec<i32>, window_size: i32) -> Vec<i32> {
+    let window_size = window_size as usize;
+    let mut maximums = vec![];
+   
+    for (i, &n) in nums.iter().enumerate() {
+        if !window.is_empty() && *window.front().unwrap() + window_size == i {
+            window.pop_front();
+        }
+        while !window.is_empty() && nums[*window.back().unwrap()] < n {
+            window.pop_back();
+        }
+        window.push_back(i);
+        if i + 1 >= window_size {
+            maximums.push(nums[*window.front().unwrap()]);
+        }
+    }
+    maximums
+}
 
 mod tests {
     use super::*;
     #[test]
-    fn test_next_greater_elements() {
-        let elements = vec![1, 2, 1];
-        let ans = vec![2, -1, 2];
-        assert_eq!(next_greater_elements(elements), ans);
+    fn test_max_sliding_window() {
+        let nums = vec![1, 3, -1, -3, 5, 3, 6, 7];
+        let window_size = 3;
+        let output = vec![3, 3, 5, 5, 6, 7];
+        assert_eq!(max_sliding_window(nums, window_size), output);
 
-        let elements = vec![1, 2, 3, 4, 3];
-        let ans = vec![2, 3, 4, -1, 4];
-        assert_eq!(next_greater_elements(elements), ans);
-
-        let elements = vec![1, 2, 3, 4, 5];
-        let ans = vec![2, 3, 4, 5, -1];
-        assert_eq!(next_greater_elements(elements), ans);
-
-        let elements = vec![1];
-        let ans = vec![-1];
-        assert_eq!(next_greater_elements(elements), ans);
-
-        let elements = vec![1, 2, 3, 4, 5];
-        let ans = vec![2, 3, 4, 5, -1];
-        assert_eq!(next_greater_elements(elements), ans);
-
-        let elements = vec![5, 4, 3, 2, 1];
-        let ans = vec![-1, 5, 5, 5, 5];
-        assert_eq!(next_greater_elements(elements), ans);
+        let nums = vec![1];
+        let window_size = 1;
+        let output = vec![1];
+        assert_eq!(max_sliding_window(nums, window_size), output);
     }
+    fn test_find_shortest_sub_array() {
+        let nums = vec![1, 2, 2, 3, 1];
+        let output = 2;
+        assert_eq!(find_shortest_sub_array(nums), output);
+
+        let nums = vec![1, 2, 2, 3, 1, 4, 2];
+        let output = 6;
+        assert_eq!(find_shortest_sub_array(nums), output);
+    }
+    // fn test_next_greater_elements() {
+    //     let elements = vec![1, 2, 1];
+    //     let ans = vec![2, -1, 2];
+    //     assert_eq!(next_greater_elements(elements), ans);
+
+    //     let elements = vec![1, 2, 3, 4, 3];
+    //     let ans = vec![2, 3, 4, -1, 4];
+    //     assert_eq!(next_greater_elements(elements), ans);
+
+    //     let elements = vec![1, 2, 3, 4, 5];
+    //     let ans = vec![2, 3, 4, 5, -1];
+    //     assert_eq!(next_greater_elements(elements), ans);
+
+    //     let elements = vec![1];
+    //     let ans = vec![-1];
+    //     assert_eq!(next_greater_elements(elements), ans);
+
+    //     let elements = vec![1, 2, 3, 4, 5];
+    //     let ans = vec![2, 3, 4, 5, -1];
+    //     assert_eq!(next_greater_elements(elements), ans);
+
+    //     let elements = vec![5, 4, 3, 2, 1];
+    //     let ans = vec![-1, 5, 5, 5, 5];
+    //     assert_eq!(next_greater_elements(elements), ans);
+    // }
     fn test_daily_temperatures() {
         let temperatures = vec![73, 74, 75, 71, 69, 72, 76, 73];
         let output = vec![1, 1, 4, 2, 1, 1, 0, 0];

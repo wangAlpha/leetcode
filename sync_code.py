@@ -186,11 +186,13 @@ class LeetCode:
             items.sort(key=lambda x: (x['time'], x['memory']))
             items.reverse()
             if len(items) >= 1:
-                print(items)
-                submission[title_lang] = items[0]
-                # item = items[0]
-                # print('best result {} {} {} {}'.format(title_lang,
-                #                                        item['lang'], item['time'], item['memory']))
+                # print(items)
+                item = items[0]
+                submission[title_lang] = item
+                print('best result {} {} {} {}'.format(title_lang,
+                                                       item['lang'],
+                                                       item['time'],
+                                                       item['memory']))
                 # exit(-1)
         # exit(-1)
         self.submission = submission
@@ -222,8 +224,7 @@ class LeetCode:
         title_slug = data['question']['titleSlug'].replace('-', '_')
         question_id = data['question']['questionId']
         full_path = self.generate_path(question_id, title_slug, lang)
-        # if title_slug in EXISTED:
-        #     print('title already exists:{}'.format(title_slug))
+
         if data and not os.path.exists(full_path):
             print('download {} {} {}'.format(question_id, title_slug, lang))
             code = data.get('code', '')

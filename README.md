@@ -176,8 +176,8 @@
 # 二分查找
  - [x]  69\. **Sqrt(x) (Easy)**
  - [x]  744\. **Find Smallest Letter Greater Than Target (Easy)**
- - [x]  278\. **First Bad Version (Easy)**
- - [ ]  153\. Find Minimum in Rotated Sorted Array (Medium)
+ - [x]  278\. First Bad Version (Easy)
+ - [x]  153\. **Find Minimum in Rotated Sorted Array (Medium)**
  - [ ]  34\. Find First and Last Position of Element in Sorted Array
  - [ ]  81\. Search in Rotated Sorted Array II (Medium)
  - [ ]  154\. Find Minimum in Rotated Sorted Array II (Medium) 旋转数组的变形题之一。
@@ -188,16 +188,16 @@
  - [ ]  95\. Unique Binary Search Trees II (Medium)
 
 # 数学
- - [ ]  204\. Count Primes (Easy)
+ - [x]  204\. **Count Primes (Easy)**
 ## 进制转换
- - [ ]  504\. Base 7 (Easy)
- - [ ]  405\. Convert a Number to Hexadecimal (Easy)
- - [ ]  168\. Excel Sheet Column Title (Easy)
+ - [x]  504\. **Base 7 (Easy)**
+ - [x]  405\. **Convert a Number to Hexadecimal (Easy)**
+ - [x]  168\. **Excel Sheet Column Title (Easy)**
 ## 阶乘
  - [ ]  172\. Factorial Trailing Zeroes (Easy)
 ## 字符串加法减法
- - [ ]  67\. Add Binary (Easy)
- - [ ]  415\. Add Strings (Easy)
+ - [x]  67\. **Add Binary (Easy)**
+ - [x]  415\. Add Strings (Easy)
 ## 相遇问题
  - [ ]  462\. Minimum Moves to Equal Array Elements II (Medium) 这道题是笔者最喜欢的 LeetCode 题目之一，需要先推理出怎么样移动是最优的，再考虑如何进行移动。你或许需要一些前些章节讲过的算法。
 ## 多数投票问题
@@ -213,9 +213,9 @@
  - [ ]  5\.   Implement Rand10() Using Rand7() (Medium) 如何用一个随机数生成器生成另一个随机数生成器？你可能需要利用原来的生成器多次。
  - [ ]  6\.   Happy Number (Easy) 你可以简单的用一个 while 循环解决这道题，但是有没有更好的解决办法？如果我们把每个数字想象成一个节点，是否可以转化为环路检测？
 # 位运算
- - [ ]  1\.   Hamming Distance (Easy)
- - [ ]  136\. Single Number (Easy)
- - [ ]  268\. Missing Number (Easy)
+ - [x]  1\.   **Hamming Distance (Easy)**
+ - [x]  136\. Single Number (Easy)
+ - [x]  268\. Missing Number (Easy)
  - [ ]  260\. Single Number III (Medium)
  - [ ]  190\. Reverse Bits (Easy)
  - [ ]  231\. Power of Two (Easy)
@@ -229,7 +229,7 @@
  - [ ]  283\. Move Zeroes (Easy)
  - [ ]  566\. Reshape the Matrix (Easy)
  - [ ]  485\. Max Consecutive Ones (Easy)
- - [ ]  240\. Search a 2D Matrix II (Medium)
+ - [x]  240\. **Search a 2D Matrix II (Medium)**
  - [ ]  378\. Kth Smallest Element in a Sorted Matrix ((Medium))
  - [ ]  645\. Set Mismatch (Easy)
  - [ ]  667\. Beautiful Arrangement II (Medium)

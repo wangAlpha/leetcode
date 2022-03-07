@@ -217,31 +217,31 @@
  - [x]  136\. Single Number (Easy)
  - [x]  268\. Missing Number (Easy)
  - [ ]  260\. Single Number III (Medium)
- - [ ]  190\. Reverse Bits (Easy)
- - [ ]  231\. Power of Two (Easy)
+ - [x]  190\. Reverse Bits (Easy)
+ - [x]  231\. Power of Two (Easy)
  - [ ]  342\. Power of Four (Easy)
- - [ ]  693\. Binary Number with Alternating Bits (Easy)
- - [ ]  476\. Number Complement (Easy)
+ - [x]  693\. **Binary Number with Alternating Bits (Easy)**
+ - [x]  476\. **Number Complement (Easy)**
  - [ ]  371\. Sum of Two Integers (Easy)
  - [ ]  318\. Maximum Product of Word Lengths (Medium)
  - [ ]  338\. Counting Bits (Medium)
 # 数组与矩阵
- - [ ]  283\. Move Zeroes (Easy)
- - [ ]  566\. Reshape the Matrix (Easy)
- - [ ]  485\. Max Consecutive Ones (Easy)
+ - [x]  283\. **Move Zeroes (Easy)**
+ - [x]  566\. Reshape the Matrix (Easy)
+ - [x]  485\. Max Consecutive Ones (Easy)
  - [x]  240\. **Search a 2D Matrix II (Medium)**
  - [ ]  378\. Kth Smallest Element in a Sorted Matrix ((Medium))
- - [ ]  645\. Set Mismatch (Easy)
+ - [x]  645\. **Set Mismatch (Easy)**
  - [ ]  667\. Beautiful Arrangement II (Medium)
- - [ ]  766\. Toeplitz Matrix (Easy)
+ - [x]  766\. **Toeplitz Matrix (Easy)**
  - [ ]  565\. Array Nesting (Medium)
  - [ ]  769\. Max Chunks To Make Sorted (Medium)
- - [ ]  448\. Find All Numbers Disappeared in an Array (Easy)
- - [ ]  48\. Rotate Image (Medium)
+ - [x]  448\. **Find All Numbers Disappeared in an Array (Easy)**
+ - [x]  48\. Rotate Image (Medium)
 ## 桶排序
- - [ ]  215\. Kth Largest Element in an Array
+ - [ ]  215\. **Kth Largest Element in an Array**
 ## 荷兰国旗问题
- - [ ]  75\. Sort Colors (Medium)
+ - [x]  75\. **Sort Colors (Medium)**
 ## 快速选择
  - [ ]  347\. Top K Frequent Elements (Medium)
  - [ ]  451\. Sort Characters By Frequency (Medium)

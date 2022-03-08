@@ -72,8 +72,8 @@
  - [ ]  108\. Convert Sorted Array to Binary Search Tree (Easy)
  - [ ]  109\. Convert Sorted List to Binary Search Tree (Medium)
  - [ ]  653\. Two Sum IV - Input is a BST (Easy)
- - [ ]  530\. Minimum Absolute Difference in BST (Easy)
- - [ ]  501\. Find Mode in Binary Search Tree (Easy)
+ - [x]  530\. Minimum Absolute Difference in BST (Easy)
+ - [x]  501\. Find Mode in Binary Search Tree (Easy)
 ## Trie
  - [ ]  208\. Implement Trie (Prefix Tree) (Medium)
  - [ ]  677\. Map Sum Pairs (Medium)
@@ -85,8 +85,8 @@
  - [ ]  106\. Construct Binary Tree from Inorder and Postorder Traversal (Medium) 给定任意两种遍历结果，我们都可以重建树的结构。
  - [x]  **897\. Increasing Order Search Tree (Easy) 把 BST 压成一个链表，务必考虑清楚指针操作的顺序，否则可能会出现环路。**
  - [ ]  450\. Delete Node in a BST (Medium) 当寻找到待删节点时，你可以分情况考虑——当前节点是叶节点、只有一个子节点和有两个子节点。建议同时回收内存。
- - [ ]  380\. Insert Delete GetRandom O(1) (Medium) 设计一个插入、删除和随机取值均为 O(1) 时间复杂度的数据结构。
- - [ ]  432\. All O‘one Data Structure (Hard) 设计一个 increaseKey，decreaseKey，getMaxKey，getMinKey 均为 O(1) 时间复杂度的数据结构。
+ - [x]  380\. Insert Delete GetRandom O(1) (Medium) 设计一个插入、删除和随机取值均为 O(1) 时间复杂度的数据结构。
+ - []  432\. All O‘one Data Structure (Hard) 设计一个 increaseKey，decreaseKey，getMaxKey，getMinKey 均为 O(1) 时间复杂度的数据结构。
  - [ ]  716\. Max Stack (Easy)
 # 双指针
  - [x]  167\. Two Sum II - Input array is sorted (Easy)
@@ -239,12 +239,12 @@
  - [x]  448\. **Find All Numbers Disappeared in an Array (Easy)**
  - [x]  48\. Rotate Image (Medium)
 ## 桶排序
- - [ ]  215\. **Kth Largest Element in an Array**
+ - [x]  215\. **Kth Largest Element in an Array**
 ## 荷兰国旗问题
  - [x]  75\. **Sort Colors (Medium)**
 ## 快速选择
- - [ ]  347\. Top K Frequent Elements (Medium)
- - [ ]  451\. Sort Characters By Frequency (Medium)
+ - [x]  347\.**Top K Frequent Elements (Medium)**
+ - [x]  451\. **Sort Characters By Frequency (Medium)**
 # 动态规划
 ## 斐波那契数列
  - [ ]  70\. Climbing Stairs (Easy)

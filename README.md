@@ -7,7 +7,6 @@
  - [ ]  332\. Reconstruct Itinerary (Medium)
  - [ ]  304\. Range Sum Query 2D - Immutable (Medium)
  - [ ]  560\. Subarray Sum Equals K (Medium)
-
  - [ ]  503\. Next Greater Element II (Medium) Daily Temperature 的变种题。
  - [x]  697\. **Degree of an Array (Easy) 如何对数组进行预处理才能正确并快速地计算子数组的长度？**
  - [x]  594\. Longest Harmonious Subsequence (Easy) 最长连续序列的变种题。
@@ -35,8 +34,8 @@
  - [x]  **225\. Implement Stack using Queues (Easy)**
  - [x]  155\. Min Stack (Easy)
  - [x]  20\. Valid Parentheses (Easy)
- - [x]  739**\. Daily Temperatures (Medium)**
- - [x]  23\. Merge k Sorted Lists (Hard)
+ - [x]  739 **\. Daily Temperatures (Medium)**
+ - [x]  23 \.Merge k Sorted Lists (Hard)
  - [ ]  218\. The Skyline Problem (Hard)
  - [x]  **239**\. Sliding Window Maximum (Hard)
 # 树
@@ -51,7 +50,7 @@
  - [x]  572\. **Subtree of Another Tree (Easy)**
  - [x]  101\. **Symmetric Tree (Easy)**
  - [x]  111\. **Minimum Depth of Binary Tree (Easy)**
- - [ ]  687\. Longest Univalue Path (Easy)
+ - [x]  687\. **Longest Univalue Path (Easy)**
  - [ ]  337\. House Robber III (Medium)
  - [x]  671\. **Second Minimum Node In a Binary Tree (Easy)**
  - [ ]  1110\. Delete Nodes And Return Forest (Medium)
@@ -84,7 +83,7 @@
  - [ ]  889\. Construct Binary Tree from Preorder and Postorder Traversal (Medium) 给定任意两种遍历结果，我们都可以重建树的结构。
  - [ ]  106\. Construct Binary Tree from Inorder and Postorder Traversal (Medium) 给定任意两种遍历结果，我们都可以重建树的结构。
  - [x]  **897\. Increasing Order Search Tree (Easy) 把 BST 压成一个链表，务必考虑清楚指针操作的顺序，否则可能会出现环路。**
- - [ ]  450\. Delete Node in a BST (Medium) 当寻找到待删节点时，你可以分情况考虑——当前节点是叶节点、只有一个子节点和有两个子节点。建议同时回收内存。
+ - [x]  450\. Delete Node in a BST (Medium) 当寻找到待删节点时，你可以分情况考虑——当前节点是叶节点、只有一个子节点和有两个子节点。建议同时回收内存。
  - [x]  380\. Insert Delete GetRandom O(1) (Medium) 设计一个插入、删除和随机取值均为 O(1) 时间复杂度的数据结构。
  - []  432\. All O‘one Data Structure (Hard) 设计一个 increaseKey，decreaseKey，getMaxKey，getMinKey 均为 O(1) 时间复杂度的数据结构。
 # 双指针
@@ -177,9 +176,9 @@
  - [x]  744\. **Find Smallest Letter Greater Than Target (Easy)**
  - [x]  278\. First Bad Version (Easy)
  - [x]  153\. **Find Minimum in Rotated Sorted Array (Medium)**
- - [ ]  34\. Find First and Last Position of Element in Sorted Array
- - [ ]  81\. Search in Rotated Sorted Array II (Medium)
- - [ ]  154\. Find Minimum in Rotated Sorted Array II (Medium) 旋转数组的变形题之一。
+ - [x]  34\. **Find First and Last Position of Element in Sorted Array**
+ - [x]  81\. **Search in Rotated Sorted Array II (Medium)**
+ - [x]  154\. **Find Minimum in Rotated Sorted Array II (Medium) 旋转数组的变形题之一。**
  - [ ]  540\. Single Element in a Sorted Array (Medium) 在出现独立数之前和之后，奇偶位数的值发生了什么变化？
  - [ ]  4\. Median of Two Sorted Arrays (Hard) 需要对两个数组同时进行二分搜索。
 # 分治
@@ -193,7 +192,7 @@
  - [x]  405\. **Convert a Number to Hexadecimal (Easy)**
  - [x]  168\. **Excel Sheet Column Title (Easy)**
 ## 阶乘
- - [ ]  172\. Factorial Trailing Zeroes (Easy)
+ - [x]  172\. **Factorial Trailing Zeroes (Easy)**
 ## 字符串加法减法
  - [x]  67\. **Add Binary (Easy)**
  - [x]  415\. Add Strings (Easy)
@@ -215,13 +214,13 @@
  - [x]  1\.   **Hamming Distance (Easy)**
  - [x]  136\. Single Number (Easy)
  - [x]  268\. Missing Number (Easy)
- - [ ]  260\. Single Number III (Medium)
+ - [x]  260\. Single Number III (Medium)
  - [x]  190\. Reverse Bits (Easy)
  - [x]  231\. Power of Two (Easy)
  - [x]  342\. Power of Four (Easy)
  - [x]  693\. **Binary Number with Alternating Bits (Easy)**
  - [x]  476\. **Number Complement (Easy)**
- - [ ]  371\. Sum of Two Integers (Easy)
+ - [x]  371\. **Sum of Two Integers (Easy)**
  - [x]  318\. **Maximum Product of Word Lengths (Medium)**
  - [x]  338\. **Counting Bits (Medium)**
 # 数组与矩阵
@@ -246,8 +245,8 @@
  - [x]  451\. **Sort Characters By Frequency (Medium)**
 # 动态规划
 ## 斐波那契数列
- - [ ]  70\. Climbing Stairs (Easy)
- - [ ]  198\. House Robber (Easy)
+ - [x]  70\. **Climbing Stairs (Easy)**
+ - [x]  198\. **House Robber (Easy)**
  - [ ]  213\. House Robber II (Medium)
  - [ ]  542\. 01 Matrix (Medium)
  - [ ]  221\. Maximal Square (Medium)

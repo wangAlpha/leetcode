@@ -110,23 +110,22 @@
  - [ ]  130\. Surrounded Regions (Medium)
  - [ ]  417\. Pacific Atlantic Water Flow (Medium)
 ## Backtracking
- - [ ]  17\. Letter Combinations of a Phone Number (Medium)
+ - [x]  17\. **Letter Combinations of a Phone Number (Medium)**
  - [ ]  93\. Restore IP Addresses(Medium)
  - [ ]  79\. Word Search (Medium)
- - [ ]  46\. Permutations (Medium)
- - [ ]  47\. Permutations II (Medium)
+ - [x]  46\. Permutations (Medium)
+ - [x]  47\. Permutations II (Medium)
  - [ ]  77\. Combinations (Medium)
  - [ ]  39\. Combination Sum (Medium)
- - [ ]  40\. Combination Sum II (Medium)
- - [ ]  216\. Combination Sum III (Medium)
- - [ ]  78\. Subsets (Medium)
- - [ ]  90\. Subsets II (Medium)
+ - [x]  40\. Combination Sum II (Medium)
+ - [x]  216\. **Combination Sum III (Medium)**
+ - [x]  78\. Subsets (Medium)
+ - [x]  90\. **Subsets II (Medium)**
  - [ ]  131\. Palindrome Partitioning (Medium)
  - [ ]  37\. Sudoku Solver (Hard)
  - [ ]  51\. N-Queens (Hard)
  - [ ]  934\. Shortest Bridge (Medium)
  - [ ]  126\. Word Ladder II (Hard)
-
  - [ ]  2\.   Binary Tree Paths (Easy) 输出二叉树中所有从根到叶子的路径，回溯法使用与否有什么区别？进阶难度
  - [ ]  3\.  Permutations II (Medium) 排列题的 follow-up，如何处理重复元素？
  - [ ]  4\.  Combination Sum II (Medium) 组合题的 follow-up，如何处理重复元素？
@@ -247,17 +246,17 @@
 ## 斐波那契数列
  - [x]  70\. **Climbing Stairs (Easy)**
  - [x]  198\. **House Robber (Easy)**
- - [ ]  213\. House Robber II (Medium)
+ - [x] 213\. **House Robber II (Medium)**
  - [ ]  542\. 01 Matrix (Medium)
- - [ ]  221\. Maximal Square (Medium)
- - [ ]  53\. Maximum Subarray (Easy) 经典的一维动态规划题目，试着把一维空间优化为常量吧。
- - [ ]  343\. Integer Break (Medium) 分割类型题，先尝试用动态规划求解，再思考是否有更简单的解法。
+ - [x]  221\. **Maximal Square (Medium)**
+ - [x]  53\. **Maximum Subarray (Easy) 经典的一维动态规划题目，试着把一维空间优化为常量吧。**
+ - [x]  343\. **Integer Break (Medium) 分割类型题，先尝试用动态规划求解，再思考是否有更简单的解法。**
  - [ ]  583\. Delete Operation for Two Strings (Medium) 最长公共子序列的变种题。
- - [ ]  646\. Maximum Length of Pair Chain (Medium) 最长递增子序列的变种题，同样的，尝试用二分进行加速。
+ - [x]  646\. Maximum Length of Pair Chain (Medium) 最长递增子序列的变种题，同样的，尝试用二分进行加速。
  - [ ]  376\. Wiggle Subsequence (Medium) 最长摆动子序列，通项公式比较特殊，需要仔细思考。
 ## 矩阵路径
  - [ ]  64\. Minimum Path Sum (Medium)
- - [ ]  62\. Unique Paths (Medium)
+ - [x]  62\. **Unique Paths (Medium)**
 ## 数组区间
  - [ ]  303\. Range Sum Query - Immutable (Easy)
  - [ ]  413\. Arithmetic Slices (Medium)
@@ -268,7 +267,7 @@
  - [ ]  300\. Longest Increasing Subsequence (Medium)
  - [ ]  376\. Wiggle Subsequence (Medium)
 ## 最长公共子序列
- - [ ]  1143\. Longest Common Subsequence
+ - [x]  1143\. **Longest Common Subsequence**
  - [ ]  416\. Partition Equal Subset Sum (Medium)
  - [ ]  494\. Target Sum (Medium)
  - [ ]  474\. Ones and Zeroes (Medium)
@@ -285,4 +284,3 @@
  - [ ]  72\. Edit Distance (Hard)
  - [ ]  650\. 2 Keys Keyboard (Medium)
  - [ ]  10\. Regular Expression Matching (Hard)
-

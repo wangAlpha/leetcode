@@ -27,8 +27,6 @@
  - [x]  328\. Odd Even Linked List (Medium)
  - [x]  **215\. Kth Largest Element in an Array (Medium)**
  - [x]  148\. **Sort List (Medium) 利用快慢指针找到链表中点后，可以对链表进行归并排序**
-
-
 # 栈和队列
  - [x]  232\. Implement Queue using Stacks (Easy)
  - [x]  **225\. Implement Stack using Queues (Easy)**
@@ -40,20 +38,21 @@
  - [x]  **239**\. Sliding Window Maximum (Hard)
 # 树
 ## 递归
- - [x]  104\. Maximum Depth of Binary Tree (Easy)
+ - [xx]  104\. Maximum Depth of Binary Tree (Easy)
  - [x]  **110\. Balanced Binary Tree (Easy)**
  - [x]  543\. **Diameter of Binary Tree (Easy)**
- - [x]  226\. Invert Binary Tree (Easy)  巧用递归，你可以在五行内完成这道题。
  - [x]  617\. Merge Two Binary Trees (Easy)
  - [x]  560\. **Subarray Sum Equals K **前缀法
  - [x]  437\. **Path Sum III (Easy)**
- - [x]  572\. **Subtree of Another Tree (Easy)**
- - [x]  101\. **Symmetric Tree (Easy)**
+ - [xx]  572\. Subtree of Another Tree (Easy)
  - [x]  111\. **Minimum Depth of Binary Tree (Easy)**
  - [x]  687\. **Longest Univalue Path (Easy)**
  - [ ]  337\. House Robber III (Medium)
  - [x]  671\. **Second Minimum Node In a Binary Tree (Easy)**
  - [ ]  1110\. Delete Nodes And Return Forest (Medium)
+ - [x] 222
+ - [x] 257
+ - [x] 112
 ## 层次遍历
  - [x]  637\. Average of Levels in Binary Tree (Easy)
  - [x]  513\. Find Bottom Left Tree Value (Easy)
@@ -122,8 +121,8 @@
  - [x]  78\. Subsets (Medium)
  - [x]  90\. **Subsets II (Medium)**
  - [ ]  131\. Palindrome Partitioning (Medium)
- - [ ]  37\. Sudoku Solver (Hard)
- - [ ]  51\. N-Queens (Hard)
+ - [x]  37\. Sudoku Solver (Hard)
+ - [x]  51\. N-Queens (Hard)
  - [ ]  934\. Shortest Bridge (Medium)
  - [ ]  126\. Word Ladder II (Hard)
  - [ ]  2\.   Binary Tree Paths (Easy) 输出二叉树中所有从根到叶子的路径，回溯法使用与否有什么区别？进阶难度

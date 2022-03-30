@@ -42,7 +42,7 @@
  - [x]  **110\. Balanced Binary Tree (Easy)**
  - [x]  543\. **Diameter of Binary Tree (Easy)**
  - [xx]  617\. Merge Two Binary Trees (Easy)
- - [x]  560\. **Subarray Sum Equals K **前缀法
+ - [x]  560\. **Subarray Sum Equals K** 前缀法
  - [x]  437\. **Path Sum III (Easy)**
  - [xx]  572\. Subtree of Another Tree (Easy)
  - [x]  111\. **Minimum Depth of Binary Tree (Easy)**
@@ -63,11 +63,11 @@
  - [ ]  105\. Construct Binary Tree from Preorder and Inorder Traversal (Medium)
  - [x]  99\. **Recover Binary Search Tree (Hard)**
 ## BST
- - [x]  669\. **Trim a Binary Search Tree (Easy)** 搜索树的定义
+ - [x]  !669\. **Trim a Binary Search Tree (Easy)** 搜索树的定义
  - [x]  230\. **Kth Smallest Element in a BST (Medium)** 迭代遍历
  - [x]  235\. **Lowest Common Ancestor of a Binary Search Tree (Easy)** 搜索树
  - [x]  236\. **Lowest Common Ancestor of a Binary Tree (Medium)**
- - [x]  108\. **Convert Sorted Array to Binary Search Tree (Easy)** 递归
+ <!-- - [x]  108\. **Convert Sorted Array to Binary Search Tree (Easy)** 递归 -->
  - [x]  109\. **Convert Sorted List to Binary Search Tree (Medium)** 找中位数
  - [x]  653\. Two Sum IV - Input is a BST (Easy)
  - [x]  530\. M**inimum Absolute Difference in BST (Easy)**
@@ -78,11 +78,11 @@
 ## STL
  - [x]  146\. LRU Cache (Medium)
  - [x]  404\. Sum of Left Leaves (Easy) 怎么判断一个节点是不是左节点呢？一种可行的方法是，在辅函数里多传一个参数，表示当前节点是不是父节点的左节点。
- - [x]  538\. Convert BST to Greater Tree (Easy) 尝试利用某种遍历方式来解决此题，每个节点只需遍历一次。
+ <!-- - [x]  538\. Convert BST to Greater Tree (Easy) 尝试利用某种遍历方式来解决此题，每个节点只需遍历一次。 -->
  - [ ]  889\. Construct Binary Tree from Preorder and Postorder Traversal (Medium) 给定任意两种遍历结果，我们都可以重建树的结构。
  - [x]  106\. **Construct Binary Tree from Inorder and Postorder Traversal (Medium) 给定任意两种遍历结果，我们都可以重建树的结构。**
  - [x]  **897\. Increasing Order Search Tree (Easy) 把 BST 压成一个链表，务必考虑清楚指针操作的顺序，否则可能会出现环路。**
- - [x]  450\. Delete Node in a BST (Medium) 当寻找到待删节点时，你可以分情况考虑——当前节点是叶节点、只有一个子节点和有两个子节点。建议同时回收内存。
+ - [x]  !450\. Delete Node in a BST (Medium) 当寻找到待删节点时，你可以分情况考虑——当前节点是叶节点、只有一个子节点和有两个子节点。建议同时回收内存。
  - [x]  380\. Insert Delete GetRandom O(1) (Medium) 设计一个插入、删除和随机取值均为 O(1) 时间复杂度的数据结构。
  - []  432\. All O‘one Data Structure (Hard) 设计一个 increaseKey，decreaseKey，getMaxKey，getMinKey 均为 O(1) 时间复杂度的数据结构。
 # 双指针

@@ -1,7 +1,7 @@
 
 # 哈希表
- - [x]  1\. Two Sum (Easy)
- - [x]  217\. Contains Duplicate (Easy)
+ <!-- - [x]  1\. Two Sum (Easy) -->
+ <!-- - [x]  217\. Contains Duplicate (Easy) -->
  - [x]  128\. Longest Consecutive Sequence (Hard)
  - [ ]  149\. Max Points on a Line (Hard)
  - [ ]  332\. Reconstruct Itinerary (Medium)
@@ -9,57 +9,56 @@
  - [ ]  560\. Subarray Sum Equals K (Medium)
  - [ ]  503\. Next Greater Element II (Medium) Daily Temperature 的变种题。
  - [x]  697\. **Degree of an Array (Easy) 如何对数组进行预处理才能正确并快速地计算子数组的长度？**
- - [x]  594\. Longest Harmonious Subsequence (Easy) 最长连续序列的变种题。
- - [x]  287\. Find the Duplicate Number (Medium) 寻找丢失数字的变种题。除了标负位置，你还有没有其它算法可以解决这个问题？
+ - [x]  !594\. Longest Harmonious Subsequence (Easy) 最长连续序列的变种题。 哈希or排序双指针
+ - [x]  !287\. Find the Duplicate Number (Medium) 寻找丢失数字的变种题。除了标负位置，你还有没有其它算法可以解决这个问题？
  - [ ]  313\. Super Ugly Number (Medium) 尝试使用优先队列解决这一问题。
  - [ ]  870\. Advantage Shuffle (Medium) 如果我们需要比较大小关系，而且同一数字可能出现多次，那么应该用什么数据结构呢？
  - [ ]  307\. Range Sum Query - Mutable (Medium) 前缀和的变种题。好吧我承认，这道题可能有些超纲，你或许需要搜索一下什么是线段树。
 # 链表
- - [x]  160\. Intersection of Two Linked Lists (Easy) Goolge
- - [x]  206\. Reverse Linked List (Easy)
- - [x]  21\. Merge Two Sorted Lists (Easy)
- - [x]  83\. Remove Duplicates from Sorted List (Easy)
- - [x]  19\. Remove Nth Node From End of List (Medium)
- - [x]  24\. Swap Nodes in Pairs (Medium)
- - [x]  445\. Add Two Numbers II (Medium)
- - [x]  234**\. Palindrome Linked List (Easy)**
- - [x]  725\. Split Linked List in Parts(Medium)
- - [x]  328\. Odd Even Linked List (Medium)
+ <!-- - [x]  160\. Intersection of Two Linked Lists (Easy) Goolge -->
+ <!-- - [x]  206\. Reverse Linked List (Easy) -->
+ <!-- - [x]  21\. Merge Two Sorted Lists (Easy) -->
+ <!-- - [x]  83\. Remove Duplicates from Sorted List (Easy) -->
+ - [x]  !19\. Remove Nth Node From End of List (Medium)
+ <!-- - [x]  !24\. Swap Nodes in Pairs (Medium) -->
+ <!-- - [x]  !725\. Split Linked List in Parts(Medium) -->
+ - [x]  !328\. Odd Even Linked List (Medium)
  - [x]  **215\. Kth Largest Element in an Array (Medium)**
  - [x]  148\. **Sort List (Medium) 利用快慢指针找到链表中点后，可以对链表进行归并排序**
 # 栈和队列
- - [x]  232\. Implement Queue using Stacks (Easy)
- - [x]  **225\. Implement Stack using Queues (Easy)**
- - [x]  155\. Min Stack (Easy)
- - [x]  20\. Valid Parentheses (Easy)
+ <!-- - [x]  232\. Implement Queue using Stacks (Easy) -->
+ <!-- - [x]  **225\. Implement Stack using Queues (Easy)** -->
+ <!-- - [x]  155\. Min Stack (Easy) -->
+ <!-- - [x]  20\. Valid Parentheses (Easy) -->
  - [x]  739 **\. Daily Temperatures (Medium)**
  - [x]  23 \.Merge k Sorted Lists (Hard)
  - [ ]  218\. The Skyline Problem (Hard)
  - [x]  **239**\. Sliding Window Maximum (Hard)
 # 树
 ## 递归
- - [xx]  104\. Maximum Depth of Binary Tree (Easy)
- - [x]  **110\. Balanced Binary Tree (Easy)**
- - [x]  543\. **Diameter of Binary Tree (Easy)**
- - [xx]  617\. Merge Two Binary Trees (Easy)
+ <!-- - [xx]  104\. Maximum Depth of Binary Tree (Easy) -->
+ <!-- - [x]  **110\. Balanced Binary Tree (Easy)** -->
+ - [x]  !543\. **Diameter of Binary Tree (Easy)**
+ 111.二叉树的最小深度
+ <!-- - [xx]  617\. Merge Two Binary Trees (Easy) -->
  - [x]  560\. **Subarray Sum Equals K** 前缀法
- - [x]  437\. **Path Sum III (Easy)**
+ - [x]  !437\. **Path Sum III (Easy)**
  - [xx]  572\. Subtree of Another Tree (Easy)
- - [x]  111\. **Minimum Depth of Binary Tree (Easy)**
+ - [x] ! 111\. **Minimum Depth of Binary Tree (Easy)**
  - [x]  687\. **Longest Univalue Path (Easy)**
  - [ ]  337\. House Robber III (Medium)
  - [x]  671\. **Second Minimum Node In a Binary Tree (Easy)**
  - [ ]  1110\. Delete Nodes And Return Forest (Medium)
  - [x] 222
- - [x] 257
+ <!-- - [x] 257 -->
  - [x] 112
 ## 层次遍历
- - [x]  637\. Average of Levels in Binary Tree (Easy)
- - [x]  513\. Find Bottom Left Tree Value (Easy)
+ <!-- - [x]  637\. Average of Levels in Binary Tree (Easy) -->
+ <!-- - [x]  513\. Find Bottom Left Tree Value (Easy) -->
 ## 前中后序遍历
- - [x]  144\. Binary Tree Preorder Traversal (Medium)
+ <!-- - [x]  94\. Binary Tree Inorder Traversal (Medium) -->
+ <!-- - [x]  144\. Binary Tree Preorder Traversal (Medium) -->
  - [x]  145\. Binary Tree Postorder Traversal (Medium)
- - [x]  94\. Binary Tree Inorder Traversal (Medium)
  - [ ]  105\. Construct Binary Tree from Preorder and Inorder Traversal (Medium)
  - [x]  99\. **Recover Binary Search Tree (Hard)**
 ## BST
@@ -70,14 +69,14 @@
  <!-- - [x]  108\. **Convert Sorted Array to Binary Search Tree (Easy)** 递归 -->
  - [x]  109\. **Convert Sorted List to Binary Search Tree (Medium)** 找中位数
  - [x]  653\. Two Sum IV - Input is a BST (Easy)
- - [x]  530\. M**inimum Absolute Difference in BST (Easy)**
+ - [x]  530\. **Minimum Absolute Difference in BST (Easy)**
  - [x]  501\. Find Mode in Binary Search Tree (Easy)
 ## Trie
  - [x]  208\. **Implement Trie (Prefix Tree) (Medium)**
  - [x]  677\. **Map Sum Pairs (Medium)**
 ## STL
  - [x]  146\. LRU Cache (Medium)
- - [x]  404\. Sum of Left Leaves (Easy) 怎么判断一个节点是不是左节点呢？一种可行的方法是，在辅函数里多传一个参数，表示当前节点是不是父节点的左节点。
+ <!-- - [x]  404\. Sum of Left Leaves (Easy) 怎么判断一个节点是不是左节点呢？一种可行的方法是，在辅函数里多传一个参数，表示当前节点是不是父节点的左节点。 -->
  <!-- - [x]  538\. Convert BST to Greater Tree (Easy) 尝试利用某种遍历方式来解决此题，每个节点只需遍历一次。 -->
  - [ ]  889\. Construct Binary Tree from Preorder and Postorder Traversal (Medium) 给定任意两种遍历结果，我们都可以重建树的结构。
  - [x]  106\. **Construct Binary Tree from Inorder and Postorder Traversal (Medium) 给定任意两种遍历结果，我们都可以重建树的结构。**
@@ -209,18 +208,18 @@
  - [ ]  5\.   Implement Rand10() Using Rand7() (Medium) 如何用一个随机数生成器生成另一个随机数生成器？你可能需要利用原来的生成器多次。
  - [ ]  6\.   Happy Number (Easy) 你可以简单的用一个 while 循环解决这道题，但是有没有更好的解决办法？如果我们把每个数字想象成一个节点，是否可以转化为环路检测？
 # 位运算
- - [x]  1\.   **Hamming Distance (Easy)**
- - [x]  136\. Single Number (Easy)
- - [x]  268\. Missing Number (Easy)
- - [x]  260\. Single Number III (Medium)
- - [x]  190\. Reverse Bits (Easy)
- - [x]  231\. Power of Two (Easy)
- - [x]  342\. Power of Four (Easy)
+ <!-- - [x]  1\.   **Hamming Distance (Easy)** -->
+ <!-- - [x]  136\. Single Number (Easy) -->
+ <!-- - [x]  268\. Missing Number (Easy) -->
+ - [x]  !260\. Single Number III (Medium)
+ <!-- - [x]  190\. Reverse Bits (Easy) -->
+ <!-- - [x]  231\. Power of Two (Easy) -->
+ <!-- - [x]  342\. Power of Four (Easy) -->
  - [x]  693\. **Binary Number with Alternating Bits (Easy)**
  - [x]  476\. **Number Complement (Easy)**
  - [x]  371\. **Sum of Two Integers (Easy)**
- - [x]  318\. **Maximum Product of Word Lengths (Medium)**
- - [x]  338\. **Counting Bits (Medium)**
+ - [x] !318\. **Maximum Product of Word Lengths (Medium)**
+ - [x] !338\. **Counting Bits (Medium)**
 # 数组与矩阵
  - [x]  283\. **Move Zeroes (Easy)**
  - [x]  566\. Reshape the Matrix (Easy)

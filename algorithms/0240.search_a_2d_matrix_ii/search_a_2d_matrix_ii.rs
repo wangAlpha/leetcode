@@ -14,6 +14,5 @@ impl Solution {
             }
         }
         false
-        // matrix[x][y] == target
     }
 }
